@@ -1,0 +1,26 @@
+type User {
+  id: String!
+
+  email: String!
+
+  first_name: String!
+
+  last_name: String!
+
+  phone_number: String!
+
+  job_name: String
+
+  age: Int
+
+  sponsor_id: String
+}
+
+type Query {
+  HelloUser: String!
+}
+
+extend type Test @key(fields: "user_id") {
+  user_id: String! @external
+  user: User @requires(fields: "user_id")
+}

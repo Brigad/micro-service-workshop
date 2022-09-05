@@ -1,0 +1,10 @@
+{
+  "name": "database-service-users",
+  "version": "0.0.0",
+  "scripts": {
+    "db:create": "npx sequelize-cli db:create --config ./config.js || true",
+    "db:migrate": "npx sequelize-cli db:migrate --config ./config.js",
+    "db:rollback": "npx sequelize-cli db:migrate:undo --config ./config.js",
+    "db:all": "yarn db:create && yarn db:migrate"
+  }
+}

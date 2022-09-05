@@ -1,0 +1,17 @@
+server:
+  listen: 0.0.0.0:4000
+  graphql_path: /graphql
+  introspection: true
+  landing_page: true
+
+cors:
+  allow_any_origin: true
+
+headers:
+  all:
+    - propagate:
+        matching: .*
+plugins:
+  experimental.expose_query_plan: true
+  experimental.include_subgraph_errors:
+    all: true

@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  users:
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=users
+      - SERVICE=users
+    depends_on:
+      - db
+  
+  contracts:
+    restart: always
+    build: .
+    ports:
+      - 3001:3001
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=contracts
+      - SERVICE=contracts
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    image: postgres:13.2
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+  router:
+    image: ghcr.io/apollographql/router:v1.0.0-alpha.0
+    ports:
+      - 4000:4000
+    command:
+      - --config
+      - /dist/config/router.yml
+      - --supergraph
+      - /dist/schema/supergraph.gql
+    volumes:
+      - ./router.yml:/dist/config/router.yml
+      - ./supergraph.gql:/dist/schema/supergraph.gql
+    depends_on:
+      - users
+      - contracts
+
+volumes:
+  db-data:
+    name: db-data
+    labels:
+      com.workshop.description: "Database volume"
