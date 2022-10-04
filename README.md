@@ -4,10 +4,10 @@ Brigad workshop about the use of graphql in a micro-service architecture.
 
 Everything is setup to work with docker-compose.
 
-## Docker
+## Installation
 
 ```bash
-$ docker compose build && docker compose up
+$ yarn
 ```
 
 ## Generate supergraph
@@ -16,9 +16,8 @@ $ docker compose build && docker compose up
 $ yarn generate:supergraph
 ```
 
-## Installation
+## Docker
 
 ```bash
-$ yarn
+$ docker compose build && docker compose up
 ```
-
