@@ -19,5 +19,5 @@ $ yarn generate:supergraph
 ## Docker
 
 ```bash
-$ docker compose build && docker compose up
+$ docker-compose build && docker-compose up
 ```
