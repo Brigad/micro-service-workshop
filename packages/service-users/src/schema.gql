@@ -19,8 +19,3 @@ type User {
 type Query {
   HelloUser: String!
 }
-
-extend type Test @key(fields: "user_id") {
-  user_id: String! @external
-  user: User @requires(fields: "user_id")
-}
