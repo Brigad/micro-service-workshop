@@ -12,10 +12,10 @@ export const databaseProvider = (database: string, modelPaths: string[]): any =>
     useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: 'postgres',
-        host: process.env.DB_HOST,
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        port: parseInt(process.env.DB_PORT ?? '0', 10),
+        host: '127.0.0.1',
+        username: 'postgres',
+        password: 'mysecretpassword',
+        port: 5432,
         database,
         modelPaths,
         modelMatch: (filename, member) => {

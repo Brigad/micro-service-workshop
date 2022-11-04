@@ -8,15 +8,15 @@
     ]
   },
   "scripts": {
-    "build": "lerna run build",
-    "start": "lerna run start",
-    "watch": "lerna run watch",
-    "clean": "lerna run clean",
+    "_rover": "npx --yes -p @apollo/rover rover",
+
+    "start-db": "docker run --name brigad-workshop-db -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres",
+    "stop-db": "docker stop brigad-workshop-db",
+
     "lint": "yarn lint:base . && yarn lint:tsc",
     "lint:base": "eslint --color --ext .ts --max-warnings=0 --cache --cache-strategy content --cache-location /tmp/cache/",
     "lint:tsc": "tsc --noEmit",
-    "lint:tsc:watch": "tsc --noEmit -w",
-    "generate:supergraph": "rover supergraph compose --config ./supergraph.yml > supergraph.gql"
+    "lint:tsc:watch": "tsc --noEmit -w"
   },
   "dependencies": {
     "@types/lodash": "4.14.170",
@@ -30,7 +30,6 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-import-helpers": "1.2.1",
     "eslint-plugin-prettier": "3.4.0",
-    "lerna": "4.0.0",
     "nodemon": "2.0.7",
     "prettier": "npm:@brigad/prettier@2.6.0-dev",
     "ts-node": "10.0.0",
