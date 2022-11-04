@@ -8,7 +8,6 @@
     ]
   },
   "scripts": {
-    "_rover": "npx --yes -p @apollo/rover rover",
     "start-db": "docker run --name brigad-workshop-db -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres",
     "stop-db": "docker stop brigad-workshop-db"
   },
