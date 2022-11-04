@@ -9,14 +9,8 @@
   },
   "scripts": {
     "_rover": "npx --yes -p @apollo/rover rover",
-
     "start-db": "docker run --name brigad-workshop-db -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres",
-    "stop-db": "docker stop brigad-workshop-db",
-
-    "lint": "yarn lint:base . && yarn lint:tsc",
-    "lint:base": "eslint --color --ext .ts --max-warnings=0 --cache --cache-strategy content --cache-location /tmp/cache/",
-    "lint:tsc": "tsc --noEmit",
-    "lint:tsc:watch": "tsc --noEmit -w"
+    "stop-db": "docker stop brigad-workshop-db"
   },
   "dependencies": {
     "@types/lodash": "4.14.170",

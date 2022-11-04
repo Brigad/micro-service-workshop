@@ -3,12 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "ts-node -T -r tsconfig-paths/register src/main.ts",
     "watch": "nodemon",
-    "build": "yarn clean && yarn compile",
-    "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "rover-dev": "npx --yes -p @apollo/rover rover dev --name contracts --schema src/schema.gql --url http://localhost:4001/graphql"
+    "rover-dev": "npx --yes -p @apollo/rover rover dev --name contracts --schema src/schema.gql --url http://localhost:4001/graphql --elv2-license accept"
   },
   "dependencies": {
     "@workshop/util-sequelize": "*",
