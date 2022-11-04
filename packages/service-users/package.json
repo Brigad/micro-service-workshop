@@ -7,13 +7,13 @@
     "rover-dev": "npx --yes -p @apollo/rover rover dev --name users --schema src/schema.gql --url http://localhost:4000/graphql --elv2-license accept"
   },
   "dependencies": {
-    "@workshop/util-sequelize": "*",
-    "@apollo/subgraph": "2.0.5",
+    "@apollo/subgraph": "2.1.4",
     "@nestjs/apollo": "10.0.19",
     "@nestjs/common": "9.0.3",
     "@nestjs/core": "9.0.3",
     "@nestjs/graphql": "10.0.21",
     "@nestjs/platform-express": "9.0.3",
+    "@workshop/util-sequelize": "*",
     "apollo-server-core": "3.10.1",
     "apollo-server-express": "3.10.1",
     "date-fns": "2.29.1",
