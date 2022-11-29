@@ -19,7 +19,7 @@ import { UserModel } from './models/user.model';
       introspection: true,
       typePaths: ['./**/*.gql'],
     }),
-    DatabaseModule.forRoot(process.env.DB_NAME ?? '', [path.resolve(__dirname, '**/models/*.model.*')]),
+    DatabaseModule.forRoot(process.env.DB_NAME ?? 'users', [path.resolve(__dirname, '**/models/*.model.*')]),
   ],
   providers: [
     UsersComponent,

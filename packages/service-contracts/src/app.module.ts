@@ -17,7 +17,7 @@ import * as Resolvers from './contracts.resolvers';
       introspection: true,
       typePaths: ['./**/*.gql'],
     }),
-    DatabaseModule.forRoot(process.env.DB_NAME ?? '', [path.resolve(__dirname, '**/models/*.model.*')]),
+    DatabaseModule.forRoot(process.env.DB_NAME ?? 'contracts', [path.resolve(__dirname, '**/models/*.model.*')]),
   ],
   providers: [ContractsComponent, ...Object.values(Resolvers)],
 })
